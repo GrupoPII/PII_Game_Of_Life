@@ -21,7 +21,7 @@ vida](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 El juego de la vida consiste en un autómata celular con unas pocas reglas muy
 simples. El universo es una grilla ortogonal de dos dimensiones, donde cada
 espacio de la grilla representa una única célula. Cada célula puede estar viva o
-muerta. Cada una de estas células tendra 8 vecinos. En cada iteración del tiempo
+muerta. Cada una de estas células tendrá 8 vecinos. En cada iteración del tiempo
 (generación) una célula estará viva o muerta según la cantidad de vecinos vivos
 o muertos que tenga. Siguiendo estas reglas:
 
@@ -58,29 +58,33 @@ deberá ser impreso en pantalla mediante consola.
 > Recuerda agregar comentarios a todas tus clases justificando tus decisiones de
 > diseño, es decir, por qué crees que si cumplen o no con SRP y Expert.
 
-Si todo ha funcionado correctamente, tu resultado debería verse algo similar a esto:
+Si todo ha funcionado correctamente, tu resultado debería verse algo similar a
+esto:
 
 ![GoL](./assets/console-gif-GoL.gif)
 
-## Code Snippets
-A continuación se presentan fragmentos de código suelto (snippets) que podrás reutilizar en tu solución.
+## *Code snippets*
+
+A continuación se presentan fragmentos de código suelto —*snippets*— que podrás
+reutilizar en tu solución.
 
 > [!WARNING]
 > Estos fragmentos de código son genéricos y no funcionaran simplemente haciendo
 > copy/paste. Si bien la estructura general y la mayoría del código no debería
-> ser necesario modificarlo, deberan ser adaptados a tu solución propuesta.
+> ser necesario modificarlo, deberán ser adaptados a tu solución propuesta.
 
 ### Lógica de juego
-El siguiente code snippet contiene la lógica necesaria para procesar una
+
+El siguiente *code snippet* contiene la lógica necesaria para procesar una
 generación del juego.
 
 Se asume:
 
 * Que el tablero es un vector —*array*— de 2 dimensiones de booleanos, donde
-  ```true``` indica una célula viva y ```false``` indica una célula muerta. Este
+  `true` indica una célula viva y `false` indica una célula muerta. Este
   vector de dos dimensiones es en realidad una matriz, donde una dimensión son
   las filas, y la otra dimensión son las columnas.
-* El objeto ```gameBoard``` contiene uun vector —*array*— ya cargado con todos
+* El objeto `gameBoard` contiene uun vector —*array*— ya cargado con todos
   los valores asignados.
 
 ```csharp
@@ -133,19 +137,19 @@ for (int x = 0; x < boardWidth; x++)
 gameBoard = cloneboard;
 ```
 
-> ```bool[,]``` es la declaración de un vector -array- multidimensional. Puedes
+> `bool[,]` es la declaración de un vector -array- multidimensional. Puedes
 > ver
 > [aquí](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/multidimensional-arrays)
 > más información.
 
 ### Leer Archivo
 
-Este snippet muestra como leer un archivo y crear una matriz de booleanos
-(```bool[,]```) con el contenido —un vector o *array* bi-dimensional—. Se asume
-que cada linea del archivo corresponde a una fila de la matriz y cada caracter
+Este *snippet* muestra como leer un archivo y crear una matriz de booleanos
+(`bool[,]`) con el contenido —un vector o *array* bi-dimensional—. Se asume
+que cada linea del archivo corresponde a una fila de la matriz y cada carácter
 de la fila corresponde a un elemento de la fila correspondiente de la matriz.
-Tambien se asume que el archivo contiene solamente los caracteres ```1``` y
-```0``` correspondientes a ```true``` y ```false``` respectivamente y que todas
+También se asume que el archivo contiene solamente los caracteres `1` y
+`0` correspondientes a `true` y `false` respectivamente y que todas
 las filas son de igual largo.
 
 Por ejemplo, el siguiente archivo de texto:
@@ -170,7 +174,7 @@ bool[3,3] {
 >
 > ![Glider](https://upload.wikimedia.org/wikipedia/commons/f/f2/Game_of_life_animated_glider.gif)
 
-Snippet de código:
+*Snippet* de código:
 
 ```csharp
 string url = "ruta del archivo";
@@ -189,8 +193,8 @@ for (int  y=0; y<contentLines.Length;y++)
 }
 ```
 
-> La clase ```File``` está definida en el espacio de nombres ```Sytem.IO```.
-> Debes incluirlo utilizando una cláusula ```using```.
+> La clase `File` está definida en el espacio de nombres `Sytem.IO`.
+> Debes incluirlo utilizando una cláusula `using`.
 
 <br>
 
@@ -200,10 +204,10 @@ for (int  y=0; y<contentLines.Length;y++)
 > ejecutes desde Rider. Por eso no es necesario indicar la ruta cuando quieras
 > abrir el archivo, usa solamente el nombre.
 
-### Imprimir Tablero
+### Imprimir tablero
 
 Aqui se muestra como imprimir un tablero por consola. Observa que este código
-requiere invocar el snippet de la lógica de juego
+requiere invocar el *snippet* de la lógica de juego
 
 ```csharp
 bool[,] b //variable que representa el tablero
@@ -241,7 +245,8 @@ while (true)
 
 ## Rúbrica corrección
 
-La corrección de este ejercicio la harán los profesores usando la siguiente rúbrica:
+La corrección de este ejercicio la harán los profesores usando la siguiente
+rúbrica:
 
 <table>
   <tr>

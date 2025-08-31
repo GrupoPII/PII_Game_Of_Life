@@ -12,7 +12,6 @@
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/src/Program/bin/Debug/net7.0/Program.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/Program",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "externalTerminal",
             "stopAtEntry": false

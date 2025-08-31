@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Threading;
+using System.Reflection;
 
 namespace Ucu.Poo.GameOfLife
 {
@@ -6,7 +9,11 @@ namespace Ucu.Poo.GameOfLife
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string folder = Path.GetDirectoryName(
+                Assembly.GetExecutingAssembly().Location);
+            string boardPath = Path.Combine(folder, "board.txt");
+            // Reemplaza 👇 esta línea con tu código
+            Console.WriteLine(boardPath);
         }
     }
 }

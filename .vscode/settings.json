@@ -16,7 +16,11 @@
         "Pseudocódigo",
         "stylecop",
     ],
-    "dotnet.defaultSolution": "ProjectTemplate.sln",
+    "cSpell.ignorePaths": [
+        "/.gitignore",
+    ],
+
+    "dotnet.defaultSolution": "Project.sln", // ← Renombrar para que coincida con la solución
     "github.copilot.enable": {
         "*": false
     },

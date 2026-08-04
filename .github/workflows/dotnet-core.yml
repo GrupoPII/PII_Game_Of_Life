@@ -12,6 +12,19 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - .
+          # - v1
+          # - v2
+          # - v3
+          # - v4
+          # - v5
+          # - v6
+          # - v7
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,15 +46,18 @@ jobs:
           sudo dpkg -i ubuntu_24.04_graphviz-15.0.0-cmake.deb
 
       - name: Installing dependencies...
+        working-directory: ${{ matrix.project }}
         run: dotnet restore
 
       - name: Building...
+        working-directory: ${{ matrix.project }}
         run: dotnet build --configuration Release --no-restore
 
       - name: Running test...
+        working-directory: ${{ matrix.project }}
         run: dotnet test --configuration Release --no-build
 
       - name: Generating docs...
-        working-directory: docs
+        working-directory: ${{ matrix.project }}/docs
         run: doxygen Doxyfile
         continue-on-error: false

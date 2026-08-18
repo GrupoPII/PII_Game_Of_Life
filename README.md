@@ -1,11 +1,11 @@
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable-next-line MD033 MD041 -->
 <img alt="UCU" src="https://www.ucu.edu.uy/plantillas/images/logo_ucu.svg"
 width="150"/>
 
 # Universidad Católica del Uruguay
 
-## Facultad de Ingeniería y Tecnologías
-
-### Programación II
+## Programación II
 
 # Conway's Game of Life
 
@@ -16,7 +16,8 @@ matemático inglés muy conocido por sus aportes matemáticos en diversas áreas
 pero lo que realmente lo hizo famoso fue su creación lúdica: [juego de la
 vida](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-![](https://upload.wikimedia.org/wikipedia/commons/e/e5/Gospers_glider_gun.gif)
+![Game of life
+animation](https://upload.wikimedia.org/wikipedia/commons/e/e5/Gospers_glider_gun.gif)
 
 El juego de la vida consiste en un autómata celular con unas pocas reglas muy
 simples. El universo es una grilla ortogonal de dos dimensiones, donde cada
@@ -114,22 +115,22 @@ for (int x = 0; x < boardWidth; x++)
         }
         if (gameBoard[x,y] && aliveNeighbors < 2)
         {
-            //Celula muere por baja población
+            // Célula muere por baja población
             cloneboard[x,y] = false;
         }
         else if (gameBoard[x,y] && aliveNeighbors > 3)
         {
-            //Celula muere por sobrepoblación
+            // Célula muere por sobrepoblación
             cloneboard[x,y] = false;
         }
         else if (!gameBoard[x,y] && aliveNeighbors == 3)
         {
-            //Celula nace por reproducción
+            // Célula nace por reproducción
             cloneboard[x,y] = true;
         }
         else
         {
-            //Celula mantiene el estado que tenía
+            // Célula mantiene el estado que tenía
             cloneboard[x,y] = gameBoard[x,y];
         }
     }
@@ -193,7 +194,7 @@ for (int  y=0; y<contentLines.Length;y++)
 }
 ```
 
-> La clase `File` está definida en el espacio de nombres `Sytem.IO`.
+> La clase `File` está definida en el espacio de nombres `System.IO`.
 > Debes incluirlo utilizando una cláusula `using`.
 
 <br>
@@ -206,13 +207,13 @@ for (int  y=0; y<contentLines.Length;y++)
 
 ### Imprimir tablero
 
-Aqui se muestra como imprimir un tablero por consola. Observa que este código
+Aquí se muestra como imprimir un tablero por consola. Observa que este código
 requiere invocar el *snippet* de la lógica de juego
 
 ```csharp
-bool[,] b //variable que representa el tablero
-int width //variabe que representa el ancho del tablero
-int height //variabe que representa altura del tablero
+bool[,] b // Variable que representa el tablero
+int width // Variable que representa el ancho del tablero
+int height // Variable que representa altura del tablero
 while (true)
 {
     Console.Clear();
@@ -241,54 +242,39 @@ while (true)
 ```
 
 > La clase ```StringBuilder``` está definida en el espacio de nombres
-> ```Sytem.Text```. Debes incluirlo utilizando una cláusula ```using```.
+> ```System.Text```. Debes incluirlo utilizando una cláusula ```using```.
 
 ## Rúbrica corrección
 
 La corrección de este ejercicio la harán los profesores usando la siguiente
 rúbrica:
 
-<table>
-  <tr>
-    <th width="20%">Ítem a evaluar</th>
-    <th width="20%">Perfecto</th>
-    <th width="20%">Correcto</th>
-    <th width="20%">Mejorable</th>
-    <th width="20%">Mal</th>
-  </tr>
-  <tr>
-    <td>
-      Código entregado
-    </td>
-    <td colspan="3">
-      El código compila
-    </td>
-    <td>
-      No hay una entrega, o el código entregado no compila
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Distribución de responsabilidades
-    </td>
-    <td>Las clases y sus responsabilidades son correctas</td>
-    <td>Casi todas las clases y responsabilidades son correctas</td>
-    <td>Las responsabilidades no están bien distribuidas</td>
-    <td>No hay un intento de distribuir responsabilidades</td>
-  </tr>
-  <tr>
-    <td>
-      Comentarios
-    </td>
-    <td>Justifica correctamente la distribución de responsabilidades</td>
-    <td>Casi todas las justificaciones son correctas</td>
-    <td>Faltan justificaciones o no son claras</td>
-    <td>No hay justificaciones o no son correctas</td>
-  </tr>
-  <tr>
-    <td>Convenciones en C#</td>
-    <td>Sigue las convenciones de código</td>
-    <td colspan="2">Sigue algunas convenciones de código</td>
-    <td>No sigue las convenciones de código</td>
-  </tr>
-</table>
+# Rúbrica de evaluación – Conway's Game of Life (POO)
+
+<!-- markdownlint-ignore MD058 -->
+| Criterio | Experto | En desarrollo | Incipiente | Insuficiente |
+| --- | --- | --- | --- | --- |
+| **Correctitud funcional** (lee archivo, simula generaciones, imprime) | Cumple todo correctamente y de forma consistente. | Cumple casi todo; fallos menores. | Funciona parcialmente o con errores frecuentes. | No funciona o no compila. |
+| **Distribución de responsabilidades (SRP + Expert)** | Clases con responsabilidades claras, una sola razón de cambio; se evidencia Expert. | Algunas responsabilidades bien distribuidas, otras no. | Distribución confusa o acoplada. | No hay diseño por responsabilidades. |
+| **Aplicación de GRASP/SOLID pertinentes** | Aplica SRP/Expert explícitamente y los justifica. | Aplica algunos criterios pero sin consistencia o explicación parcial. | Aplicación débil o poco justificada. | No aplica ni justifica. |
+| **Diseño orientado a objetos (colaboraciones y modelo)** | Clases y colaboraciones coherentes con el dominio. | Diseño razonable con algunas inconsistencias. | Diseño pobre; falta claridad en relaciones. | Diseño inexistente o incorrecto. |
+| **Comentarios de justificación** | Todas las clases justificadas con claridad. | La mayoría justificadas de forma aceptable. | Pocas justificaciones o poco claras. | Sin justificaciones o incorrectas. |
+| **Calidad y convenciones C#** | Nombres, formato y estilo consistentes. | Algunos desvíos menores. | Múltiples problemas de estilo. | Estilo y convenciones ignoradas. |
+| **Mantenibilidad** | Cambios futuros serían simples y localizados. | Mantenible con esfuerzo moderado. | Difícil de mantener. | Muy difícil de modificar sin efectos colaterales. |
+
+Otorga puntos según las siguientes reglas:
+
+* Si todos los criterios son "Experto", 100 puntos.
+
+* Si todos los criterios son "Insuficiente", 30 puntos.
+
+* Si la mayoría de los criterios son "En desarrollo", 75 puntos.
+
+* Si la mayoría de los criterios son "Incipiente", 60 puntos.
+
+* En los demás casos, asigna puntos ponderando las reglas anteriores.
+
+## Uso de ![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-000?logo=githubcopilot&logoColor=fff)
+
+Es posible usar GitHub Copilot en este repositorio. Consulta [cómo usar Copilot
+para aprender](./COPILOT.md).

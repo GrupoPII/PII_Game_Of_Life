@@ -1,74 +1,60 @@
-
-namespace Ucu.Poo.GameOfLife{
-public class Engine
+namespace Ucu.Poo.GameOfLife
 {
-    private Board board;
-
-    public Engine(Board board)
+    public class Engine
     {
-        this.board = board;
-    }
+        private bool[,] board;
 
-    public Board Board => board;
-
-    public void CreateNextGeneration()
-    {
-        int width = board.Width;
-        int height = board.Height;
-
-        Cell[,] nextCells = new Cell[width, height];
-
-        for (int x = 0; x < width; x++)
+        public Engine(bool[,] board)
         {
-            for (int y = 0; y < height; y++)
-            {
-                int aliveNeighbors = CountAliveNeighbors(x, y);
-                bool isAlive = board.GetCell(x, y).IsAlive;
-
-                bool willBeAlive;
-                if (isAlive && aliveNeighbors < 2)
-                {
-                    willBeAlive = false; // baja población
-                }
-                else if (isAlive && aliveNeighbors > 3)
-                {
-                    willBeAlive = false; // sobrepoblación
-                }
-                else if (!isAlive && aliveNeighbors == 3)
-                {
-                    willBeAlive = true; // reproducción
-                }
-                else
-                {
-                    willBeAlive = isAlive; // se mantiene
-                }
-
-                nextCells[x, y] = new Cell(willBeAlive);
-            }
+            this.board = board;
         }
 
-        board.SetCells(nextCells);
-    }
+        public bool[,] Board => board;
 
-    private int CountAliveNeighbors(int x, int y)
-    {
-        int width = board.Width;
-        int height = board.Height;
-        int count = 0;
-
-        for (int i = x - 1; i <= x + 1; i++)
+        public void CreateNextGeneration()
         {
-            for (int j = y - 1; j <= y + 1; j++)
+            int width = board.GetLength(0);
+            int height = board.GetLength(1);
+            bool[,] nextBoard = new bool[width, height];
+
+            for (int x = 0; x < width; x++)
             {
-                if (i == x && j == y) continue;
-                if (i >= 0 && i < width && j >= 0 && j < height && board.GetCell(i, j).IsAlive)
+                for (int y = 0; y < height; y++)
                 {
-                    count++;
+                    int aliveNeighbors = CountAliveNeighbors(x, y);
+                    bool isAlive = board[x, y];
+
+                    if (isAlive && aliveNeighbors < 2)
+                        nextBoard[x, y] = false;
+                    else if (isAlive && aliveNeighbors > 3)
+                        nextBoard[x, y] = false;
+                    else if (!isAlive && aliveNeighbors == 3)
+                        nextBoard[x, y] = true;
+                    else
+                        nextBoard[x, y] = isAlive;
                 }
             }
+
+            board = nextBoard;
         }
 
-        return count;
+        private int CountAliveNeighbors(int x, int y)
+        {
+            int width = board.GetLength(0);
+            int height = board.GetLength(1);
+            int count = 0;
+
+            for (int i = x - 1; i <= x + 1; i++)
+            {
+                for (int j = y - 1; j <= y + 1; j++)
+                {
+                    if (i == x && j == y) continue;
+                    if (i >= 0 && i < width && j >= 0 && j < height && board[i, j])
+                        count++;
+                }
+            }
+
+            return count;
+        }
     }
-}
 }

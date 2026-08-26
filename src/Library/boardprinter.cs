@@ -1,6 +1,5 @@
 using System;
 using System.Text;
-using System.Threading;
 
 namespace Ucu.Poo.GameOfLife
 {
@@ -16,21 +15,13 @@ namespace Ucu.Poo.GameOfLife
                 {
                     for (int x = 0; x < width; x++)
                     {
-                        if (board[x,y])
-                        {
-                            output.Append("|X|");
-                        }
-                        else
-                        {
-                           output.Append("___");
-                        }
+                        output.Append(board[x, y] ? "|X|" : "___");
                     }
 
-                    output.AppendLine();
-                }
+                output.AppendLine();
+            }
 
                 Console.WriteLine(output.ToString());
-                new Engine(board).CreateNextGeneration();
                 Thread.Sleep(300);
             }
         }

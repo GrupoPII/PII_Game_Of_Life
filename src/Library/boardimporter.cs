@@ -10,7 +10,7 @@ namespace Ucu.Poo.GameOfLife
 {
     public static class BoardImporter
     {
-        public static string Url { get; } = "src/Program/board.txt";
+        public static string Url { get; } = "/Users/valentinahernandezrovere/PII_Game_Of_Life/src/Program/board.txt";
 
         public static string Content { get; } = File.ReadAllText(Url);
         public static string[] ContentLines { get; } = Content.Split('\n');

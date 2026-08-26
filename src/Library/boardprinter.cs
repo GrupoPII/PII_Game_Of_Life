@@ -1,11 +1,12 @@
 using System;
 using System.Text;
+using System.Threading;
 
 namespace Ucu.Poo.GameOfLife
 {
     public class BoardPrinter
     {
-        public void Print(bool[,] board, int width, int height)
+        public void Print(bool[,] board, int width, int height, Engine engine = null)
         {
             while (true)
             {
@@ -22,6 +23,7 @@ namespace Ucu.Poo.GameOfLife
             }
 
                 Console.WriteLine(output.ToString());
+                engine?.CreateNextGeneration();
                 Thread.Sleep(300);
             }
         }

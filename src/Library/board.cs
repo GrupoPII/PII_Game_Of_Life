@@ -7,10 +7,10 @@ namespace Ucu.Poo.GameOfLife
     {
         private Cell[,] cells;
 
-        /// <summary>Ancho del tablero (número de columnas).</summary>
+        /// <summary>Ancho del tablero </summary>
         public int Width { get; private set; }
 
-        /// <summary>Alto del tablero (número de filas).</summary>
+        /// <summary>Alto del tablero </summary>
         public int Height { get; private set; }
 
         
@@ -132,7 +132,7 @@ namespace Ucu.Poo.GameOfLife
 
                     if (isCurrentlyAlive && aliveNeighbors < 2)
                     {
-                        // Muere por soledad
+                        // Muere por soledad :(
                         nextState = false;
                     }
                     else if (isCurrentlyAlive && aliveNeighbors > 3)
@@ -145,7 +145,7 @@ namespace Ucu.Poo.GameOfLife
                         // Nace por reproducción
                         nextState = true;
                     }
-                    // En cualquier otro caso, la célula mantiene su estado actual
+                    // la célula mantiene su estado actual
 
                     cloneBoard[x, y] = new Cell(nextState);
                 }

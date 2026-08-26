@@ -16,13 +16,21 @@ namespace Ucu.Poo.GameOfLife
                 {
                     for (int x = 0; x < width; x++)
                     {
-                        output.Append(board[x, y] ? "|X|" : "___");
+                        if (board[x,y])
+                        {
+                            output.Append("|X|");
+                        }
+                        else
+                        {
+                           output.Append("___");
+                        }
                     }
 
                     output.AppendLine();
                 }
 
                 Console.WriteLine(output.ToString());
+                new Engine(board).CreateNextGeneration();
                 Thread.Sleep(300);
             }
         }

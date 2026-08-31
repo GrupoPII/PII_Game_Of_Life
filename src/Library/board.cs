@@ -11,7 +11,6 @@ namespace Ucu.Poo.GameOfLife
 
         /// <summary>Alto del tablero </summary>
         public int Height { get; private set; }
-
         public Board(bool[,] initialBoard)
         {
             ArgumentNullException.ThrowIfNull(initialBoard);

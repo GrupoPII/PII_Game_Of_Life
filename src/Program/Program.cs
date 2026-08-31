@@ -14,9 +14,8 @@ namespace Ucu.Poo.GameOfLife
         /// <param name="args">Command line arguments.</param>
         public static void Main(string[] args)
         {
-            // Carga el tablero inicial desde src/Program/board.txt usando BoardImporter
-            bool[,] initialState = BoardImporter.Board;
-            Board board = new Board(initialState);
+            // Carga el tablero inicial desde assets/board.txt usando BoardImporter
+            Board board = BoardImporter.Board;
             BoardPrinter printer = new BoardPrinter();
             int width = initialState.GetLength(1);
 
@@ -25,7 +24,7 @@ namespace Ucu.Poo.GameOfLife
 
             while (running)
             {
-                BoardPrinter.Print(initialState, width);
+                printer.Print(board.BoardState, board.Width, board.Height);
                 Console.WriteLine($"Generación {generation}");
 
                 board.CreateNextGeneration();

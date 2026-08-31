@@ -8,10 +8,7 @@ namespace Ucu.Poo.GameOfLife
     /// </summary>
     public static class BoardImporter
     {
-        /// <summary>
-        /// Gets the URI path to the board file.
-        /// </summary>
-        public static Uri Url { get; } = new Uri("file:///Users/valentinahernandezrovere/PII_Game_Of_Life/src/Program/board.txt");
+        public static string Url { get; } = "src/Program/board.txt";
 
         /// <summary>
         /// Gets the content of the board file.
@@ -23,27 +20,22 @@ namespace Ucu.Poo.GameOfLife
         /// </summary>
         public static string[] ContentLines { get; } = Content.Split('\n');
 
-        public static bool[,] Board { get; } = InitializeBoard();
+        public static Board Board { get; } = InitializeBoard();
 
-        private static bool[,] InitializeBoard()
+        private static Board InitializeBoard()
         {
-            bool[,] board = new bool[ContentLines.Length, ContentLines[0].Length];
+            bool[,] initialState = new bool[ContentLines.Length, ContentLines[0].Length];
             for (int y = 0; y < ContentLines.Length; y++)
             {
                 for (int x = 0; x < ContentLines[y].Length; x++)
                 {
                     if (ContentLines[y][x] == '1')
                     {
-                        board[x, y] = "|x|";
-                    }
-                    else
-                    {
-                        board[x, y] = "___";
+                        board[x, y] = true;
                     }
                 }
             }
-            return board;
+            return new Board(initialState);
         }
-
     }
 }

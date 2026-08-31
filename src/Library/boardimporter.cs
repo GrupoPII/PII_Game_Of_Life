@@ -1,6 +1,3 @@
-// Copyright (c) 2024
-// Licensed under the MIT License.
-
 using System;
 using System.IO;
 

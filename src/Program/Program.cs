@@ -7,9 +7,8 @@ namespace Ucu.Poo.GameOfLife
     {
         public static void Main(string[] args)
         {
-            // Carga el tablero inicial desde src/Program/board.txt usando BoardImporter
-            bool[,] initialState = BoardImporter.Board;
-            Board board = new Board(initialState);
+            // Carga el tablero inicial desde assets/board.txt usando BoardImporter
+            Board board = BoardImporter.Board;
             BoardPrinter printer = new BoardPrinter();
 
             int generation = 0;
@@ -17,7 +16,7 @@ namespace Ucu.Poo.GameOfLife
 
             while (running)
             {
-                printer.Print(board.BoardState, board.Width, board.Height);
+                printer.Print(board);
                 Console.WriteLine($"Generación {generation}");
 
                 board.CreateNextGeneration();

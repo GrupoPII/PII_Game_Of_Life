@@ -1,13 +1,26 @@
+// Copyright (c) 2024
+// Licensed under the MIT License.
+
 using System;
 using System.IO;
 
 namespace Ucu.Poo.GameOfLife
 {
+    /// <summary>
+    /// Provides functionality to import game board data from a file.
+    /// </summary>
     public static class BoardImporter
     {
-        public static string Url { get; } = "board.txt";
+        public static string Url { get; } = "src/Program/board.txt";
 
-        public static string Content { get; } = File.ReadAllText(Url);
+        /// <summary>
+        /// Gets the content of the board file.
+        /// </summary>
+        public static string Content { get; } = File.ReadAllText(Url.LocalPath);
+
+        /// <summary>
+        /// Gets the content of the board file split into lines.
+        /// </summary>
         public static string[] ContentLines { get; } = Content.Split('\n');
 
         public static Board Board { get; } = InitializeBoard();
@@ -21,7 +34,7 @@ namespace Ucu.Poo.GameOfLife
                 {
                     if (ContentLines[y][x] == '1')
                     {
-                        initialState[x, y] = true;
+                        board[x, y] = true;
                     }
                 }
             }

@@ -16,7 +16,7 @@ namespace Ucu.Poo.GameOfLife
 
         public override string ToString()
         {
-            return IsAlive ? "O" : ".";
+            return IsAlive ? "O" : "."; //if else 0 true, .false
         }
     }
 }

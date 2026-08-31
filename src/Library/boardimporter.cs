@@ -37,7 +37,11 @@ namespace Ucu.Poo.GameOfLife
                 {
                     if (ContentLines[y][x] == '1')
                     {
-                        board[x, y] = true;
+                        board[x, y] = "|x|";
+                    }
+                    else
+                    {
+                        board[x, y] = "___";
                     }
                 }
             }

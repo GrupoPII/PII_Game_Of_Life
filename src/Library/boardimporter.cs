@@ -1,18 +1,29 @@
+// Copyright (c) 2024
+// Licensed under the MIT License.
+
 using System;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Ucu.Poo.GameOfLife
 {
+    /// <summary>
+    /// Provides functionality to import game board data from a file.
+    /// </summary>
     public static class BoardImporter
     {
-        public static string Url { get; } = "/Users/valentinahernandezrovere/PII_Game_Of_Life/src/Program/board.txt";
+        /// <summary>
+        /// Gets the URI path to the board file.
+        /// </summary>
+        public static Uri Url { get; } = new Uri("file:///Users/valentinahernandezrovere/PII_Game_Of_Life/src/Program/board.txt");
 
-        public static string Content { get; } = File.ReadAllText(Url);
+        /// <summary>
+        /// Gets the content of the board file.
+        /// </summary>
+        public static string Content { get; } = File.ReadAllText(Url.LocalPath);
+
+        /// <summary>
+        /// Gets the content of the board file split into lines.
+        /// </summary>
         public static string[] ContentLines { get; } = Content.Split('\n');
 
         public static bool[,] Board { get; } = InitializeBoard();
